@@ -13,6 +13,28 @@ const rl = readline.createInterface({
 
 // the function that will be called by the unit test below
 const rockPaperScissors = (hand1, hand2) => {
+  //Setting the values for both hand1 and hand2 to lowercase and trim whitespace
+  hand1 = hand1.toLowerCase().trim()
+  hand2 = hand2.toLowerCase().trim()
+
+  //If both hand1 and hand2 are equal, it will return a tie and finish.
+  if (hand1 === hand2) {
+    return "It's a tie!"
+    //Else test begins for Hand1 wins
+  } else if (hand1 === 'rock' && hand2 === 'scissors') {
+    return "Hand one wins!"
+  } else if (hand1 === 'paper' && hand2 === 'rock') {
+    return "Hand one wins!"
+  } else if (hand1 === 'scissors' && hand2 === 'paper') {
+    return "Hand one wins!"
+    //Else test begins for Hand2 wins
+  } else if (hand1 === 'scissors' && hand2 === 'rock') {
+    return "Hand two wins!"
+  } else if (hand1 === 'rock' && hand2 === 'paper') {
+    return "Hand two wins!"
+  } else if (hand1 === 'paper' && hand2 === 'scissors') {
+    return "Hand two wins!"
+  }
 
   // Write code here
   // Use the unit test to see what is expected
@@ -25,7 +47,7 @@ const rockPaperScissors = (hand1, hand2) => {
 function getPrompt() {
   rl.question('hand1: ', (answer1) => {
     rl.question('hand2: ', (answer2) => {
-      console.log( rockPaperScissors(answer1, answer2) );
+      console.log(rockPaperScissors(answer1, answer2));
       getPrompt();
     });
   });
